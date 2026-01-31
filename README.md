@@ -118,6 +118,38 @@ All values live in `lib/core/config/app_config.dart`. Override at build time wit
 
 ## Checklist (new app)
 
-- [ ] Set app name and bundle IDs; set `kApiBaseUrl`
-- [ ] Enable Crashlytics if needed; replace template features with real flows
-- [ ] Add assets in `pubspec.yaml` if needed; run `flutter analyze`
+**Identity & branding**
+
+- [ ] Set app **name** in `pubspec.yaml` (`name:` and `description:`).
+- [ ] Set **display name** per platform: Android `android/app/src/main/AndroidManifest.xml` (`android:label`), iOS `ios/Runner/Info.plist` (`CFBundleDisplayName`).
+- [ ] Set **package / bundle ID**: Android `applicationId` in `android/app/build.gradle`, iOS `PRODUCT_BUNDLE_IDENTIFIER` in Xcode or `ios/Runner.xcodeproj/project.pbxproj`.
+- [ ] Replace **app icon** (launcher): add assets and run `flutter pub run flutter_launcher_icons` or update `android/app/src/main/res/` and `ios/Runner/Assets.xcassets/AppIcon.appiconset/` manually.
+- [ ] Replace **splash screen** if you use one (e.g. `flutter_native_splash` or platform-native assets).
+
+**Config (`lib/core/config/app_config.dart`)**
+
+- [ ] Set **`kApiBaseUrl`** (and optionally `kWsBaseUrl`, `kApiKey`, `kEnvironment`) for your backend.
+- [ ] Enable **Crashlytics** if needed: set `kUseFirebaseCrashlytics = true`, add `google-services.json` (Android) and `GoogleService-Info.plist` (iOS), then build.
+- [ ] Remove or adjust any other feature flags / env vars you don’t need.
+
+**Code & structure**
+
+- [ ] Replace **template features** (e.g. home) with your real flows; add features under `lib/features/` with controller, model, view, and feature export.
+- [ ] Update **routes**: `lib/app/routes.dart` and `lib/app/app_pages.dart` (GetPage list and bindings); set initial route in `lib/app/app.dart` if not home.
+- [ ] Update **dependencies** in `pubspec.yaml`: remove unused packages (e.g. `get_storage`, Firebase) and add any new ones; run `flutter pub get`.
+
+**Assets & quality**
+
+- [ ] Declare **assets** in `pubspec.yaml` under `flutter: assets:` if you use images/fonts/etc.
+- [ ] Run **`flutter analyze`** and fix any issues; run on a device or simulator to verify.
+
+**Platform-specific**
+
+- [ ] **Android:** Check `minSdkVersion` in `android/app/build.gradle`; add permissions in `AndroidManifest.xml` (e.g. internet, camera) and any required config (e.g. `usesCleartextTraffic` for dev).
+- [ ] **iOS:** Set minimum iOS version in `ios/Podfile`; add permissions and URL schemes in `Info.plist` if needed (e.g. `LSApplicationQueriesSchemes` for url_launcher).
+- [ ] **Signing:** Configure Android signing (keystore) and iOS provisioning for release builds.
+
+**Release prep**
+
+- [ ] Set **version** and **build number** in `pubspec.yaml` (`version: x.y.z+build`); bump for each store upload.
+- [ ] Prepare **store listing** (screenshots, description, privacy policy URL) and ensure app complies with store policies.
