@@ -1,14 +1,4 @@
-# template_app
-
-Flutter template: feature-first MVC, GetX, optional dark mode and Firebase Crashlytics.
-
-## Getting Started
-
-**Prerequisites:** Dart `^3.5.3`, Flutter `3.24.3` ([install](https://docs.flutter.dev/get-started/install)).
-
-```bash
-flutter pub get && flutter run
-```
+# Flutter Template App V2
 
 ## Features
 
@@ -21,6 +11,14 @@ flutter pub get && flutter run
 - **Cached images** — [CachedNetworkImageWidget](lib/core/widgets/cached_network_image_widget.dart) for network images.
 - **Optional Crashlytics** — [CrashReporter](lib/shared/services/crash_reporter.dart) (Firebase Crashlytics, off by default).
 - **App config** — Central config in `app_config.dart` (env, API URL, version, feature flags).
+
+## Getting Started
+
+**Prerequisites:** Dart `^3.5.3`, Flutter `3.24.3` ([install](https://docs.flutter.dev/get-started/install)).
+
+```bash
+flutter pub get && flutter run
+```
 
 ## Dependencies
 
