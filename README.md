@@ -10,6 +10,18 @@ Flutter template: feature-first MVC, GetX, optional dark mode and Firebase Crash
 flutter pub get && flutter run
 ```
 
+## Features
+
+- **Feature-first MVC** — Controllers, models, and views organized per feature under `lib/features/`.
+- **GetX** — State management, routing, and dependency injection (Obx, bindings, Get.find).
+- **Premade dark mode** — Optional dark theme wired and ready to use.
+- **API layer** — Dio-based [ApiService](lib/shared/services/api_service.dart) with configurable base URL.
+- **Local storage** — [PrefsService](lib/shared/services/prefs_service.dart) (shared_preferences) and optional get_storage.
+- **URL launcher** — Open links, mail, and phone via [UrlLauncherService](lib/shared/services/url_launcher_service.dart) and [LinkButton](lib/core/widgets/link_button.dart).
+- **Cached images** — [CachedNetworkImageWidget](lib/core/widgets/cached_network_image_widget.dart) for network images.
+- **Optional Crashlytics** — [CrashReporter](lib/shared/services/crash_reporter.dart) (Firebase Crashlytics, off by default).
+- **App config** — Central config in `app_config.dart` (env, API URL, version, feature flags).
+
 ## Dependencies
 
 | Package                                                                                                                         | Why                                                                                                                                        |
