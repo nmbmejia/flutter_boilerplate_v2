@@ -4,8 +4,26 @@ A Flutter template with feature-first MVC, GetX, optional dark mode, optional Fi
 
 ## Getting Started
 
-- Run `flutter pub get` and `flutter run`.
-- See [Flutter documentation](https://docs.flutter.dev/) for general Flutter development.
+### Prerequisites
+
+- **Dart SDK**: `^3.5.3` (see `environment.sdk` in `pubspec.yaml`)
+- **Flutter**: `3.24.3` (see `environment.flutter` in `pubspec.yaml`)
+- Flutter installed and on your `PATH` ([Install Flutter](https://docs.flutter.dev/get-started/install))
+
+Then run `flutter pub get` and `flutter run`. See [Flutter documentation](https://docs.flutter.dev/) for more.
+
+## Used external dependencies
+
+| Package                                                               | Purpose                                         | Why                                                                                                                                                                                                |
+| --------------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [get](https://pub.dev/packages/get)                                   | State management, routing, dependency injection | Single package for reactive state (Obx), named routes, bindings, and Get.find; keeps the template simple without extra boilerplate.                                                                |
+| [get_storage](https://pub.dev/packages/get_storage)                   | Lightweight key-value storage                   | Fast, no native code; useful for small config/tokens when you don’t need platform prefs.                                                                                                           |
+| [dio](https://pub.dev/packages/dio)                                   | HTTP client                                     | Interceptors, timeouts, and base URL out of the box; powers [ApiService](lib/shared/services/api_service.dart).                                                                                    |
+| [cached_network_image](https://pub.dev/packages/cached_network_image) | Cached network images                           | Caches images to disk/memory so lists and avatars load quickly and don’t re-fetch on scroll.                                                                                                       |
+| [shared_preferences](https://pub.dev/packages/shared_preferences)     | Platform key-value storage                      | Native Android/iOS prefs; reliable for tokens and user settings via [PrefsService](lib/shared/services/prefs_service.dart).                                                                        |
+| [url_launcher](https://pub.dev/packages/url_launcher)                 | Open URLs, mail, phone                          | Standard way to open links, mailto, and tel: across platforms; wrapped in [UrlLauncherService](lib/shared/services/url_launcher_service.dart) and [LinkButton](lib/core/widgets/link_button.dart). |
+| [firebase_core](https://pub.dev/packages/firebase_core)               | Firebase SDK                                    | Required only when Crashlytics (or other Firebase features) is enabled.                                                                                                                            |
+| [firebase_crashlytics](https://pub.dev/packages/firebase_crashlytics) | Crash reporting                                 | Optional; gives production crash reports and non-fatal logs via [CrashReporter](lib/shared/services/crash_reporter.dart) when the flag is on.                                                      |
 
 ## Project Structure
 
