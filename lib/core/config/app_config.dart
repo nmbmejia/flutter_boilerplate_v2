@@ -2,6 +2,13 @@
 /// Set [kUseFirebaseCrashlytics] to true and add Firebase config files to enable Crashlytics.
 const bool kUseFirebaseCrashlytics = false;
 
+/// App version (name+build). Keep in sync with `version:` in pubspec.yaml, or pass at build:
+/// `flutter run --dart-define=APP_VERSION=1.0.0+1`
+const String kAppVersion = String.fromEnvironment(
+  'APP_VERSION',
+  defaultValue: '1.0.0+1',
+);
+
 /// Current environment name (e.g. dev, staging, prod).
 /// Override: `flutter run --dart-define=ENVIRONMENT=staging`
 const String kEnvironment = String.fromEnvironment(
