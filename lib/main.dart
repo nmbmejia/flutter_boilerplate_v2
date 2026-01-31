@@ -10,7 +10,6 @@ import 'package:template_app/core/config/app_config.dart';
 import 'package:template_app/shared/services/api_service.dart';
 import 'package:template_app/shared/services/crash_reporter.dart';
 import 'package:template_app/shared/services/prefs_service.dart';
-import 'package:template_app/shared/services/logger_service.dart';
 import 'package:template_app/shared/services/url_launcher_service.dart';
 
 void main() async {
@@ -20,7 +19,6 @@ void main() async {
   Get.put(ApiService());
   Get.put(await PrefsService.init());
   Get.put(UrlLauncherService());
-  Get.put(LoggerService());
 
   if (kUseFirebaseCrashlytics) {
     await Firebase.initializeApp();
