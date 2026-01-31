@@ -107,7 +107,13 @@ CrashReporter.setUserId(userId);
 
 ## Optional config
 
-- **API base URL:** `kApiBaseUrl` in `app_config.dart`; override: `flutter run --dart-define=API_BASE_URL=https://...`
+All values live in `lib/core/config/app_config.dart`. Override at build time with `--dart-define=NAME=value`.
+
+- **Environment:** `kEnvironment` (default `development`); e.g. `--dart-define=ENVIRONMENT=staging`
+- **API base URL:** `kApiBaseUrl`; e.g. `--dart-define=API_BASE_URL=https://...`
+- **WebSocket URL:** `kWsBaseUrl` (optional); e.g. `--dart-define=WS_BASE_URL=wss://...`
+- **API key:** `kApiKey` (optional; prefer secure storage in production)
+- **Verbose logging:** `kVerboseLogging` (optional); e.g. `--dart-define=VERBOSE_LOGGING=true`
 - **Crashlytics:** Set `kUseFirebaseCrashlytics = true`, add `google-services.json` / `GoogleService-Info.plist`, then build.
 
 ## Checklist (new app)
