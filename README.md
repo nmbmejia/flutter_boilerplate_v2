@@ -52,6 +52,15 @@ lib/
 Get.toNamed(Routes.login);
 Get.back();
 Get.offAllNamed(Routes.home);
+
+// Pass arguments / objects
+Get.toNamed(Routes.detail, arguments: {'id': 1, 'name': 'Item'});
+Get.toNamed(Routes.profile, arguments: userModel);
+
+// Receive in destination (e.g. in Controller or build())
+final args = Get.arguments;           // dynamic
+final id = Get.arguments['id'];      // when you passed a Map
+final user = Get.arguments as User;   // when you passed an object
 ```
 
 **API** (base URL in `lib/core/config/app_config.dart`)
