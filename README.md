@@ -19,6 +19,7 @@ flutter pub get && flutter run
 | [cached_network_image](https://pub.dev/packages/cached_network_image)                                                           | Cached images → [CachedNetworkImageWidget](lib/core/widgets/cached_network_image_widget.dart)                                              |
 | [shared_preferences](https://pub.dev/packages/shared_preferences)                                                               | Key-value storage → [PrefsService](lib/shared/services/prefs_service.dart)                                                                 |
 | [url_launcher](https://pub.dev/packages/url_launcher)                                                                           | Open links/mail/tel → [UrlLauncherService](lib/shared/services/url_launcher_service.dart), [LinkButton](lib/core/widgets/link_button.dart) |
+| [logger](https://pub.dev/packages/logger)                                                                                       | Structured logging → [LoggerService](lib/shared/services/logger_service.dart)                                                             |
 | [get_storage](https://pub.dev/packages/get_storage)                                                                             | Lightweight storage (optional)                                                                                                             |
 | [firebase_core](https://pub.dev/packages/firebase_core) / [firebase_crashlytics](https://pub.dev/packages/firebase_crashlytics) | Optional crash reporting → [CrashReporter](lib/shared/services/crash_reporter.dart)                                                        |
 
@@ -29,7 +30,7 @@ lib/
 ├── app/         # Routes, theme, pages
 ├── core/        # Config, constants, extensions, shared widgets
 ├── features/    # MVC per feature (controller, model, view)
-├── shared/      # ApiService, PrefsService, CrashReporter, UrlLauncherService
+├── shared/      # ApiService, PrefsService, CrashReporter, LoggerService, UrlLauncherService
 └── main.dart
 ```
 
@@ -57,6 +58,16 @@ await api.post('/login', data: {'email': email, 'password': password});
 final prefs = Get.find<PrefsService>();
 await prefs.setString('token', token);
 final token = prefs.getStringOr('token', '');
+```
+
+**Logger**
+
+```dart
+final log = Get.find<LoggerService>();
+log.debug('User opened screen');
+log.info('Data loaded', {'count': items.length});
+log.warning('Retrying request');
+log.error('Request failed', e, st);
 ```
 
 **Open URL / mail / phone**
