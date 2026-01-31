@@ -1,9 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 import 'package:template_app/app/routes.dart';
 import 'package:template_app/features/home/model/home_model.dart';
-import 'package:template_app/shared/services/logger_service.dart';
 
 /// Home screen logic (C in MVC). Reactive state via GetX.
 class HomeController extends GetxController {
@@ -26,17 +24,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    var logger = Logger();
-
-    logger.t("Trace log");
-
-    logger.d("Debug log");
-
-    logger.i("Info log");
-
-    logger.w("Warning log");
-
-    logger.e("Error log", error: 'Test Error');
+    debugPrint('HomeController onInit');
   }
 
   @override
