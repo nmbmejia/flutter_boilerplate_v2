@@ -14,8 +14,8 @@
 
 ## Getting Started
 
-**Prerequisites:** Dart `^3.9.2`, Flutter `3.35.5` ([install](https://docs.flutter.dev/get-started/install)).<br>
-**Release date:** September 29, 2025
+**Prerequisites:** Dart `^3.10.8`, Flutter `3.41.4` ([install](https://docs.flutter.dev/get-started/install)).<br>
+**Release date:** January 29, 2026
 
 ```bash
 flutter pub get && flutter run
